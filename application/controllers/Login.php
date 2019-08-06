@@ -21,26 +21,14 @@ class Login extends CI_Controller {
 		if($cek){
 			$data_session = array(
 				'user' 		=> $user,
-				'nama'		=> $cek[0]['nama_lengkap'],
 				'id'			=> $cek[0]['username'],
 				'pass'		=> $cek[0]['password'],
-				'level'		=> $cek[0]['level'],
-				'status' 	=> "loginELIB".$cek[0]['password']
+				'status' 	=> "logged"
 				);
 			$this->session->set_userdata($data_session);
+			redirect("admin/Siswa");
 
-			if($cek[0]['level'] == "Super Admin"){
-				redirect('admin/Dashboard');
-			}
-			elseif ($cek[0]['level'] == "Operator") {
-				redirect('operator/Dashboard');
-			}
-			elseif ($cek[0]['level'] == "Mahasiswa") {
-				redirect('Home');
-			}
-			else{
-				echo "blablabla";
-			}
+
 		}else{
 			//$data=array('galon' => "Username dan Password Anda Salah");
 			//$this->load->view('login',$data);
@@ -50,7 +38,7 @@ class Login extends CI_Controller {
 
 	function logout(){
 		$this->session->sess_destroy();
-		redirect('Home');
+		redirect('Login');
 	}
 
 }

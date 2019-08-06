@@ -32,10 +32,8 @@
                           <thead>
                             <tr>
                               <th>No</th>
-                              <th>Nama Lengkap</th>
                               <th>Username</th>
                               <th>Password</th>
-                              <th>Level</th>
                               <th>Opsi</th>
                             </tr>
                           </thead>
@@ -43,10 +41,8 @@
                             <?php $no = 1; foreach ($data_user as $list_user) { ?>
                             <tr>
                               <td><?php echo $no++; ?></td>
-                              <td><?php echo $list_user['nama_lengkap']; ?></td>
                               <td><?php echo $list_user['username']; ?></td>
                               <td><?php echo $list_user['password']; ?></td>
-                              <td><?php echo $list_user['level']; ?></td>
                               <td><a class="btn btn-xs btn-danger" style="margin : 0px 10px 0px 10px" href="<?php echo base_url(); ?>admin/user/hapus/<?php echo $list_user['id_user']; ?>" data-toggle="confirmation">Hapus</a><a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target=".bs-example-modal-sm<?php echo $list_user['id_user'] ?>">Edit</a></td>
                             </tr>
                             <?php } ?>
@@ -86,12 +82,6 @@
           <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/user/registrasi_user">
             <div class="box-body">
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-3 control-label">Nama Lengkap</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="nama" placeholder="Nama" name="nama" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-group">
                 <label for="inputEmail3" class="col-sm-3 control-label">Username</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" id="username" placeholder="Nama" name="username">
@@ -100,17 +90,7 @@
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="username" placeholder="Nama" name="password" value="12345678">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-3 control-label">Level Akun</label>
-                <div class="col-sm-9">
-                  <select class="form-control" name="level">
-                    <option>Super Admin</option>
-                    <option>Operator</option>
-                    <option>Mahasiswa</option>
-                  </select>
+                  <input type="text" class="form-control" id="username" placeholder="Nama" name="password">
                 </div>
               </div>
             </div>
@@ -143,12 +123,6 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="" class="col-md-3 control-label">Nama Lengkap</label>
-                    <div class="col-md-9">
-                      <input type="" class="form-control" id="kual" name="nama" value="<?php echo $list_user02['nama_lengkap']; ?>">
-                    </div>
-                  </div>
-                  <div class="form-group">
                     <label for="" class="col-md-3 control-label">Username</label>
                     <div class="col-md-9">
                       <input type="" class="form-control" id="kual" name="username" value="<?php echo $list_user02['username']; ?>">
@@ -159,18 +133,7 @@
                     <div class="col-md-9">
                       <input type="" class="form-control" id="kual" name="password" value="<?php echo $list_user02['password']; ?>">
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">Level Akun</label>
-                    <div class="col-sm-9">
-                      <select class="form-control" name="level">
-                        <option <?php if($list_user02['level'] == "Super Admin"){echo "selected";}; ?>>Super Admin</option>
-                        <option <?php if($list_user02['level'] == "Operator"){echo "selected";}; ?>>Operator</option>
-                        <option <?php if($list_user02['level'] == "Mahasiswa"){echo "selected";}; ?>>Mahasiswa</option>
-                      </select>
-                    </div>
-                  </div>
-                
+                  </div>                
                 </div>
               </div>
             </div>

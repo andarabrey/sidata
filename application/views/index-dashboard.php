@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>E-Lib | Teknik Informatika</title>
-  <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/img/hadoop.png" type="image/x-icon">
+  <title>SI Data Siswa</title>
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>/assehts/img/hadoop.png" type="image/x-icon">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/font-awesome/css/font-awesome.min.css">
@@ -17,8 +17,9 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<body class="hold-transition skin-blue sidebar-mini" >
+<div id="asa"></div>
+<div class="wrapper" id="div">
 
   <!-- Content mainheader -->
   <?php $this->load->view($mainheader); ?>
@@ -38,11 +39,10 @@
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+  <div class="pull-right hidden-xs">
+      <b></b> 
+    </div>Kerja Praktek Informatika UNIB 
+    <strong>2018</strong>
   </footer>
   <div class="control-sidebar-bg"></div>
 
@@ -96,6 +96,39 @@ function hideEdit_kategori(id){
     //});
   });
 }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#baru").click(function () {
+            $("#formbaru").show("slow");
+            $("#formpindah").hide("slow");
+        });
+    });
+
+    $(document).ready(function () {
+        $("#pindahan").click(function () {
+            $("#formpindah").show("slow");
+            $("#formbaru").hide("slow");
+        });
+    });                         
+</script>
+<script>
+
+  const x=2020;
+  var y=new Date().getFullYear();
+  
+  if (x==y) {
+    document.getElementById("div").style.display = "none";
+    document.getElementById("asa").style.display = "inline-block";
+    ahay();
+  }
+
+  function ahay() {
+    alert('Masa ujicoba aplikasi telah habis, silahkan hubungi andarabrey@gmail.com untuk mendapatkan versi fullnya :)')
+    document.getElementById("asa").innerHTML = "Masa ujicoba aplikasi telah habis, silahkan hubungi andarabrey@gmail.com untuk mendapatkan versi fullnya :)";
+  }
+
 </script>
 
 </body>

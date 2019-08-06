@@ -1,0 +1,25 @@
+
+.searchbar{
+  border-radius: 1px;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #82d682;
+    height: 48px;
+}
+
+a.navbar-brand:hover{
+  background-color: #212121;
+  height: 48px;
+}
+
+
+.nav-home a.navbar-brand{
+  color:white;
+}
+
+a.navbar-brand:hover{
+  background-color: #000;
+  color: #4bf28d;
+}

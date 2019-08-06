@@ -5,15 +5,10 @@ class Dashboard extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$password = $this->session->userdata('pass');
-		$level = $this->session->userdata('level');
-		if($this->session->userdata('status') != "loginELIB"."$password"){
+		if($this->session->userdata('status') != "logged"){
 			redirect('Login');
 		}
-		else{
-			if ($level != "Super Admin") {
-				redirect('not_access');
-			}
-		}
+		
 	}
 
 	public function index(){

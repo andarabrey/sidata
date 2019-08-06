@@ -1,156 +1,101 @@
-<!DOCTYPE html>
-<html>
-  <head>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Library Teknik Informatika UNIB</title>
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.css" type>
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap-reboot.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-    <style type="text/css">
-    	@import url('https://fonts.googleapis.com/css?family=Anton|Oswald');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Home | SMPN17 </title>
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>/assehts/img/hadoop.png" type="image/x-icon">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/AdminLTE.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/other/datatables/datatables.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/home.css">
 
-    	h1, h2, h3{
-    		font-family: 'Anton', sans-serif;
-    	}
+	<!--<link href="assets/css/search.css" rel="stylesheet">-->
 
-		th{
-			font-family: 'Anton', sans-serif;
-			font-weight: normal;
-			font-size: 14px;
-		}
+</head>
+<body>
+<nav class="navbar navbar-default" style="background-color:#3C8DBC; border-radius:0px; margin-bottom:0px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<?php echo base_url(); ?>" style="color:white;">
+        SMPN17
+      </a>
+    </div>
+  </div>
+</nav>
 
-    	body{
-			font-family: 'Oswald', sans-serif;
-			font-size: 13px;
-    	}
+	<div class="container wrapper" >
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<div class="alert alert-success alert-dismissable" style="margin-top:10px; margin-bottom:10px;"> 
+		      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<b>Selamat Datang di Website Pendaftaran dan Pendataan Siswa Baru SMPN 17 Kota Bengkulu, Untuk Login Admin silahkan klik <a href="<?php echo base_url();?>login">disini</a></b>
+			  </div>
+			</div>
 
-    	.tex{
-    		background-image: url("<?php echo base_url();?>assets/img/cream-pixels.png");
-    	}
-
-    	.body{
-    		background-image: url("<?php echo base_url();?>assets/img/climpek.png");
-    		
-
-    		background-color: /*#DDCBB3 #d2e5ef*/  #F9F9F9;
-    		height: 100vh;
-    	}
-
-    	.wrap{
-    		/*background-image: url("<?php echo base_url();?>assets/img/bg.png");
-    		background-repeat: no-repeat;*/
-
-    		background-color: /*#DDCBB3*/ #FCFCFC;
-    		border: 1px solid #ededed;
-  			border-radius: 3px;
-				
-    	}
-
-    	.sq{
-    		border-radius: 0px;
-    	}
-
-		.footer {
-			margin-top: 20px;
-			width: 100%;
-			height: 42px;
-		}
-
-		.hid{
-			display:none;
-			color:white;
-		}
-    </style>
-
-  </head>
-  <body class="body">
-
-  <nav class="tex navbar d-block d-sm-none sticky-top navbar-dark" style="background-color: #2e8676 /*#FF8C00*/	">
-  		<a class="navbar-brand" href="<?php echo base_url(); ?>">ELIB-TI</a>
-	</nav>
-
-	<nav class="d-none d-sm-flex tex navbar sticky-top navbar-dark"  style="max-height:600px;background-color:#2e8676 /* #C2623A #FF8C00*/	">
-		<a class="navbar-brand" href="<?php echo base_url()?>">ELIB-TI</a>
-		<div>
-		  	
-		  <form <?php if($this->session->userdata('nama') != ""){echo 'style="display:none"' ?>
-				<?php }?> class="form-inline my-2 my-lg-0" method="POST" action="<?php echo base_url().'login/aksi_login' ?>">
-			<input class="sq form-control mr-sm-2" type="text" placeholder="Username" name="username">
-			<input class="sq form-control mr-sm-2" type="password" placeholder="Password" name="password">
-			<button class="sq btn btn-dark my-2 my-sm-0" style="background-color: #253B4B; " type="submit">Login</button>
-		  </form>
-
-
-			<div class="hid form-inline my-2 my-lg-0" <?php if($this->session->userdata('nama') != ""){echo 'style="display:block"' ?>>
-				<form action="<?php echo base_url();?>login/logout">
-					<h6 class="form-control sq my-2 my-lg-0" > <?php echo $this->session->userdata('nama'); ?> </h6>
-					<button class="sq btn btn-dark my-2 my-sm-0" style="background-color: #253B4B; " type="submit">Logout</button>
-				</form>
-				</div>
-			<?php }?>
 		</div>
-	</nav>
-	  
-	<br>
-  	<div class="container-fluid">
-  		<div class="row wrap" style="margin-top: -22px">
-  			<div class="col-md-12">
-				<h2 class="d-block d-md-none" style="text-align: center; margin-top: 20px;">E-LIBRARY INFORMATIKA UNIVERSITAS BENGKULU</h3>
-  				<h1 class="d-none d-md-block" style="text-align: center; margin-top: 20px;">E-LIBRARY INFORMATIKA UNIVERSITAS BENGKULU</h1>
-        </div>
-      </div>
-	  
-	  	<form class="tex form-inline my-2 my-lg-0 <?php if($this->session->userdata('nama') == ""){echo 'd-block' ?>
-				<?php } else echo 'd-none';?> d-sm-none" method="post" action="<?php echo base_url().'login/aksi_login' ?>">
-			<div class="row">
-				<input class="sq form-control mr-sm-2 col-5 offset-1" type="text" placeholder="Username" name="username">
-				<input class="sq form-control mr-sm-2 col-5" type="password" placeholder="Password" name="password">
-			<button class="sq btn btn-dark mr-sm-2 col-10 offset-1" style="background-color: #253B4B; " type="submit">Login</button>
+
+
+	<div class="container-fluid wrapsearch" style="background-color: #fefefe; border: 1px solid #f5f5f5">
+		<br>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5 col-xs-2 col-xs-offset-5 ">
+				<img align="center" src="<?php echo base_url();?>/assets/img/logo.png" class="img-responsive" alt="Responsive image">
 			</div>
-		</form>
-
-		<form class="tex form-inline my-2 my-lg-0 <?php if($this->session->userdata('nama') != ""){echo 'd-block' ?>
-				<?php } else echo 'd-none';?> d-sm-none" method="post" action="<?php echo base_url().'login/logout' ?>">
-			<div class="row">
-				<h6 class="form-control sq my-2 col-4 offset-2" > <?php echo $this->session->userdata('nama'); ?> </h6>
-				<button class="sq btn btn-dark my-2 col-4" style="background-color: #253B4B; " type="submit">Logout</button>		
-			</div>
-		</form>
-
-
-      <hr>
-			<form method="get" action="<?php echo base_url().'home/cari' ?>">
-			<div class="row">
-				<div class="col-md-8 offset-md-2" style="baorder: 3px solid gray;">
-					<input class="sq form-control form-control-lg" name='cari' type="text" placeholder="masukkan pencarian lalu klik enter">
-				</div>
-			</div>
-			</form>
-			<hr>
-  			
-
-  		
-
-
-  		<br>
- 
-			<?php $this->load->view($content); ?>
-  
-  	</div>
-
-
- 	<footer class="footer tex navbar-dark" style="background-color: #2e8676">
-		<div class="container">
-			<h6 style="display: block;
-    text-align: center;
-    padding-top: 13px;
-    color: white;" class="form-inline my-2 my-lg-0">DEVELOPED BY <span><a style="color:wheat;" href="http://instagram.com/andarabrey" target="_blank">BA</a></span> & <span><a style="color:wheat;" target="_blank" href="http://instagram.com/yudhaniagara">YN</a></span></span> | 2018</h6>
 		</div>
-	</footer>
-  </body>
+		<?php $x=$this->M_siswa->count_siswa() ?>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+				<hr>
+				<h2 align="center">Pilih Menu</h2>
+				<hr>
+				<p align="center">jumlah siswa yang telah diterima adalah <?php echo $x ?>/500 orang</p>
+			</div>
+		</div>
+		<br>
 
-<script src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+			
+
+			    <div class="col-md-5" style="display : <?php if($x>501){ echo "none"; }?>">
+                    <a href="<?php echo base_url(); ?>home/daftar" type="button" class="btn btn-lg btn-block btn-primary">Registrasi</a>
+                </div>
+								<div class="col-md-5" style="display : <?php if($x<501){ echo "none"; }?>">
+                    <a href="#" type="" disabled class="btn btn-lg btn-block btn-primary">Registrasi Ditutup</a>
+                </div>
+                <div class="col-md-5 col-md-offset-2">
+                    <a href="<?php echo base_url(); ?>home/lihat" type="button" class="btn btn-lg btn-block btn-success">Lihat Kelas</a>
+                </div>
+			</div>
+    </div>
+	</div>
+ </div>
 
 
+    <script src="<?php echo base_url(); ?>/assets/other/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets/other/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets/other/fastclick/lib/fastclick.js"></script>
+<script src="<?php echo base_url(); ?>/assets/other/datatables/datatables.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/adminlte.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets/other/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="<?php echo base_url(); ?>/assets/other/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/pages/dashboard2.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/demo.js"></script>
+<script src="<?php echo base_url(); ?>/assets/other/bs-confirmation-master/bootstrap-confirmation.min.js"></script>
+
+	<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</body>
 </html>

@@ -5,13 +5,8 @@ class User extends CI_Controller{
 		parent::__construct();
 		$password = $this->session->userdata('pass');
 		$level = $this->session->userdata('level');
-		if($this->session->userdata('status') != "loginELIB"."$password"){
+		if($this->session->userdata('status') != "logged"){
 			redirect('Login');
-		}
-		else{
-			if ($level != "Super Admin") {
-				redirect('not_access');
-			}
 		}
 
 		$this->load->model('M_user');
@@ -30,9 +25,7 @@ class User extends CI_Controller{
 	}
 
 	function registrasi_user(){
-		$level = $this->input->post('level');
-		$data=array('nama_lengkap'	=> $this->input->post('nama'),
-								'level'					=> $level,
+		$data=array(
 								'username'			=> $this->input->post('username'),
 								'password'			=> $this->input->post('password'),
 								);
@@ -47,9 +40,7 @@ class User extends CI_Controller{
 	}
 
 	function update($id){
-		$data=array('nama_lengkap'	=> $this->input->post('nama'),
-								'level'					=> $this->input->post('level'),
-								'username'			=> $this->input->post('username'),
+		$data=array(			'username'			=> $this->input->post('username'),
 								'password'			=> $this->input->post('password'),
 								);
 
